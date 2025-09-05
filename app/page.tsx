@@ -96,12 +96,12 @@ export default function Home() {
               <h2>Feels like {data?.main?.feels_like}°C</h2>
               <div className="flex flex-row gap-1">
                 <svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13 11C15.7614 11 18 8.76142 18 6C18 3.23858 15.7614 1 13 1C10.2386 1 8 3.23858 8 6" stroke="white" stroke-width="2" stroke-linecap="round" />
-                  <path d="M3 11H13" stroke="white" stroke-width="2" stroke-linecap="round" />
-                  <path d="M4 19H18" stroke="white" stroke-width="2" stroke-linecap="round" />
-                  <path d="M15 22C15 23.6569 16.3431 25 18 25C19.6569 25 21 23.6569 21 22C21 20.3431 19.6569 19 18 19" stroke="white" stroke-width="2" stroke-linecap="round" />
-                  <path d="M22.0001 15C24.7615 15 27.0001 12.7614 27.0001 10C27.0001 7.23858 24.7615 5 22.0001 5C21.7038 5 21.4135 5.02577 21.1313 5.0752" stroke="white" stroke-width="2" stroke-linecap="round" />
-                  <path d="M1 15H22" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  <path d="M13 11C15.7614 11 18 8.76142 18 6C18 3.23858 15.7614 1 13 1C10.2386 1 8 3.23858 8 6" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M3 11H13" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M4 19H18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M15 22C15 23.6569 16.3431 25 18 25C19.6569 25 21 23.6569 21 22C21 20.3431 19.6569 19 18 19" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M22.0001 15C24.7615 15 27.0001 12.7614 27.0001 10C27.0001 7.23858 24.7615 5 22.0001 5C21.7038 5 21.4135 5.02577 21.1313 5.0752" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M1 15H22" stroke="white" strokeWidth="2" strokeLinecap="round" />
                 </svg>
                 {data?.wind?.speed} km/h, {data?.wind?.speed}°
 
