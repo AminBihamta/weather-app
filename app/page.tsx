@@ -68,7 +68,7 @@ export default function Home() {
         onChange={e => setQuery(e.target.value)} />
 
       {filteredCities.length > 0 && query.length > 0 && (
-        <ul className="flex flex-col gap-3 w-full pr-5 pl-5 absolute mt-13 ml-[-20px] md:ml-0">
+        <ul className="flex flex-col gap-3 w-full md:w-110 pr-5 pl-5 absolute mt-13 ml-[-20px] md:ml-0">
 
           {filteredCities.map(city => (
             <li key={city} className="bg-[#0A0A0A] border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm hover:cursor-pointer hover:bg-neutral-900"
@@ -89,8 +89,8 @@ export default function Home() {
 
       {selectedCity && data && !loading && (
 
-        <div className="flex flex-row  w-full max-w-320 md:justify-around md:mt-[10vh] md:grow grow-0">
-          <div className="flex flex-col gap-10 md:flex-row align-middle md:align-top md:mt-[-100] md:justify-between justify-center w-full items-center">
+        <div className="flex flex-row w-full max-w-320 md:justify-around md:mt-[10vh] md:grow-0 grow">
+          <div className="flex flex-col gap-10 md:flex-row align-middle md:align-top md:mt-20 md:justify-between justify-center w-full items-center">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <p className="text-l text-neutral-400">{data?.sys?.country}</p>
