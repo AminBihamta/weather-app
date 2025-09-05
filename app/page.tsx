@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
 
-function getLocalTime(timezoneOffsetSeconds: number) {
+function getLocalTime(timezoneOffsetSeconds?: number) {
   const utc = new Date();
   // Convert offset from seconds to milliseconds and add to UTC time
-  const localTime = new Date(utc.getTime() + timezoneOffsetSeconds * 1000);
+  const offsetMs = (timezoneOffsetSeconds ?? 0) * 1000;
+  const localTime = new Date(utc.getTime() + offsetMs);
   return localTime.toLocaleTimeString();
-
 }
 
 export default function Home() {
@@ -23,7 +23,12 @@ export default function Home() {
     };
     wind?: {
       speed?: number;
+      deg?: number;
     };
+    sys?: {
+      country?: string;
+    };
+    timezone?: number;
     [key: string]: unknown;
   }
   const [data, setData] = useState<WeatherData | null>(null);
