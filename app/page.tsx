@@ -80,8 +80,8 @@ export default function Home() {
 
       {selectedCity && data && !loading && (
 
-        <div className="flex flex-row min-w-screen justify-around  mt-[10vh]">
-          <div className="flex flex-row align-middle justify-around w-full items-center">
+        <div className="flex flex-row   w-full max-w-320 justify-around  mt-[10vh]">
+          <div className="flex flex-row w-full align-middle justify-between w-full items-center">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <p className="text-l text-neutral-400">{data?.sys?.country}</p>
