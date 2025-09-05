@@ -12,7 +12,8 @@ function getLocalTime(timezoneOffsetSeconds?: number) {
 }
 
 export default function Home() {
-  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string | null>("New York");
+
   const [query, setQuery] = useState("");
   const filteredCities = cities.filter(city => city.toLowerCase().includes(query.toLowerCase()));
   const [loading, setLoading] = useState(false);
