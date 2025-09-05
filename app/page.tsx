@@ -67,7 +67,11 @@ export default function Home() {
 
           {filteredCities.map(city => (
             <li key={city} className="bg-[#0A0A0A] border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm hover:cursor-pointer hover:bg-neutral-900"
-              onClick={() => setSelectedCity(city)}>
+              onClick={() => {
+                setSelectedCity(city);
+                setQuery("");
+              }
+              }>
               {city}
             </li>
           ))}
