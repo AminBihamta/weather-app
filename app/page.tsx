@@ -59,16 +59,16 @@ export default function Home() {
 
 
   return (
-    <div className="flex flex-col items-center pt-20 pb-20 pl-5 pr-5 min-h-screen gap-5">
+    <div className="flex flex-col items-start md:items-center pt-5 md:pt-20 pb-20 pl-5 pr-5 min-h-screen gap-5">
       <input
-        className="border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm w-100"
+        className="border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm md:w-100 w-full"
         type="text"
         placeholder="Enter city name"
         value={query}
         onChange={e => setQuery(e.target.value)} />
 
       {filteredCities.length > 0 && query.length > 0 && (
-        <ul className="flex flex-col gap-3 w-100 absolute mt-13">
+        <ul className="flex flex-col gap-3 w-full pr-5 pl-5 absolute mt-13 ml-[-20px] md:ml-0">
 
           {filteredCities.map(city => (
             <li key={city} className="bg-[#0A0A0A] border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm hover:cursor-pointer hover:bg-neutral-900"
@@ -89,15 +89,15 @@ export default function Home() {
 
       {selectedCity && data && !loading && (
 
-        <div className="flex flex-row   w-full max-w-320 justify-around  mt-[10vh]">
-          <div className="flex flex-row w-full align-middle justify-between w-full items-center">
+        <div className="flex flex-row  w-full max-w-320 md:justify-around md:mt-[10vh] md:grow grow-0">
+          <div className="flex flex-col gap-10 md:flex-row align-middle md:align-top md:mt-[-100] md:justify-between justify-center w-full items-center">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <p className="text-l text-neutral-400">{data?.sys?.country}</p>
-                <p className="text-2xl font-bold">{selectedCity}</p>
+                <p className="md:text-2xl text-xl  font-bold">{selectedCity}</p>
               </div>
 
-              <h1 className="text-9xl font-black">{data?.main?.temp}°C</h1>
+              <h1 className="md:text-9xl text-7xl font-black">{data?.main?.temp}°C</h1>
               <h2>Feels like {data?.main?.feels_like}°C</h2>
               <div className="flex flex-row gap-1">
                 <svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,8 +111,8 @@ export default function Home() {
                 {data?.wind?.speed} km/h, {data?.wind?.deg}°
               </div>
             </div>
-            <div className="bg-neutral-100 p-10 rounded-2xl flex h-min">
-              <p className="text-neutral-900 text-8xl font-black shrink max-h-min flex">{getLocalTime(data.timezone)}</p>
+            <div className="bg-neutral-100 md:p-10 p-5 rounded-2xl flex h-min">
+              <p className="text-neutral-900 md:text-8xl text-5xl font-black shrink max-h-min flex">{getLocalTime(data.timezone)}</p>
             </div>
           </div>
           {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
