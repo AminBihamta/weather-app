@@ -15,7 +15,7 @@ export default function Home() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const filteredCities = cities.filter(city => city.toLowerCase().includes(query.toLowerCase()));
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   interface WeatherData {
     main?: {
       temp?: number;
@@ -24,7 +24,7 @@ export default function Home() {
     wind?: {
       speed?: number;
     };
-    [key: string]: any;
+    [key: string]: unknown;
   }
   const [data, setData] = useState<WeatherData | null>(null);
   const [utcNow, setUtcNow] = useState<Date>(new Date());
@@ -34,7 +34,7 @@ export default function Home() {
       setUtcNow(new Date());
     }, 1000);
     return () => clearInterval(timer);
-  })
+  }, []);
 
   useEffect(() => {
     if (!selectedCity) return;
@@ -103,8 +103,7 @@ export default function Home() {
                   <path d="M22.0001 15C24.7615 15 27.0001 12.7614 27.0001 10C27.0001 7.23858 24.7615 5 22.0001 5C21.7038 5 21.4135 5.02577 21.1313 5.0752" stroke="white" strokeWidth="2" strokeLinecap="round" />
                   <path d="M1 15H22" stroke="white" strokeWidth="2" strokeLinecap="round" />
                 </svg>
-                {data?.wind?.speed} km/h, {data?.wind?.speed}°
-
+                {data?.wind?.speed} km/h, {data?.wind?.deg}°
               </div>
             </div>
             <div className="bg-neutral-100 p-10 rounded-2xl flex h-min">
