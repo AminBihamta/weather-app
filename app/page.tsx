@@ -16,7 +16,7 @@ function getLocalTime(timezoneOffsetSeconds?: number) {
 }
 
 export default function Home() {
-  const cityNames: { name: string }[] = allCities as { name: string }[];
+  const cityNames: { name: string, country: string }[] = allCities as { name: string, country: string }[];
   const cities = cityNames.map(city => city.name);
   const [selectedCity, setSelectedCity] = useState<string | null>("New York");
 
@@ -77,8 +77,8 @@ export default function Home() {
       {filteredCities.length > 0 && query.length > 0 && (
         <ul className="flex flex-col gap-3 w-full md:w-110 pr-5 pl-5 absolute mt-13 ml-[-20px] md:ml-0">
 
-          {filteredCities.map(city => (
-            <li key={city} className="bg-[#0A0A0A] border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm hover:cursor-pointer hover:bg-neutral-900"
+          {filteredCities.map((city, country) => (
+            <li key={`${city}-${country}`} className="bg-[#0A0A0A] border-solid outline outline-white pt-2 pb-2 pl-4 pr-4 rounded-sm hover:cursor-pointer hover:bg-neutral-900"
               onClick={() => {
                 setSelectedCity(city);
                 setQuery("");
