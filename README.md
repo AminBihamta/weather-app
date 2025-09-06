@@ -7,4 +7,4 @@ This is a simple weather app built with [Next.js](https://nextjs.org) as a learn
 ## Live Demo
 
 This project is deployed on Vercel:  
-[https://weather-app-aminbihamta.vercel.app](https://weather-app-aminbihamta.vercel.app)
+[https://weather-bkfhtj3tg-aminbihamtas-projects.vercel.app/](https://weather-bkfhtj3tg-aminbihamtas-projects.vercel.app/)
