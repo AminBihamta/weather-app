@@ -1,7 +1,11 @@
 
 "use client";
 import { useEffect, useState } from "react";
-const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
+import allCities from "./cities.json" assert { type: "json" };
+
+
+
+// const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
 
 function getLocalTime(timezoneOffsetSeconds?: number) {
   const utc = new Date();
@@ -12,10 +16,12 @@ function getLocalTime(timezoneOffsetSeconds?: number) {
 }
 
 export default function Home() {
+  const cityNames: { name: string }[] = allCities as { name: string }[];
+  const cities = cityNames.map(city => city.name);
   const [selectedCity, setSelectedCity] = useState<string | null>("New York");
 
   const [query, setQuery] = useState("");
-  const filteredCities = cities.filter(city => city.toLowerCase().includes(query.toLowerCase()));
+  const filteredCities = cities.filter(city => city.toLowerCase().includes(query.toLowerCase())).slice(0, 15);
   const [loading, setLoading] = useState(false);
   interface WeatherData {
     main?: {
