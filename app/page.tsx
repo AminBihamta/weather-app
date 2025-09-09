@@ -16,12 +16,16 @@ function getLocalTime(timezoneOffsetSeconds?: number) {
 
 export default function Home() {
   const cityNames: { name: string, country: string }[] = allCities as { name: string, country: string }[];
-  const cities = cityNames.map(city => city.name);
+  // const cities = cityNames.map(city => city.name);
+  const cities = Array.from(new Set(cityNames.map(city => city.name)));
   const [selectedCity, setSelectedCity] = useState<string | null>("New York");
+
 
   const [query, setQuery] = useState("");
   const filteredCities = cities.filter(city => city.toLowerCase().includes(query.toLowerCase())).slice(0, 15);
   const [loading, setLoading] = useState(false);
+
+
   interface WeatherData {
     main?: {
       temp?: number;
