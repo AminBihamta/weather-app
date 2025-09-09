@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useState } from "react";
 import allCities from "./cities.json" assert { type: "json" };
@@ -8,11 +7,11 @@ import allCities from "./cities.json" assert { type: "json" };
 // const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
 
 function getLocalTime(timezoneOffsetSeconds?: number) {
-  const utc = new Date();
-  // Convert offset from seconds to milliseconds and add to UTC time
-  const offsetMs = (timezoneOffsetSeconds ?? 0) * 1000;
-  const localTime = new Date(utc.getTime() + offsetMs);
-  return localTime.toLocaleTimeString();
+  const cityOffsetMs = (timezoneOffsetSeconds ?? 0) * 1000;
+  // getTimezoneOffset() is minutes to add to local time to get UTC (negative if local is ahead of UTC)
+  const browserOffsetMs = new Date().getTimezoneOffset() * 60_000;
+  const timestamp = Date.now() + cityOffsetMs + browserOffsetMs;
+  return new Date(timestamp).toLocaleTimeString();
 }
 
 export default function Home() {
